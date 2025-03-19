@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;cin>>t;
+    while(t--)
+    {
+        int n,x,y;
+        cin>>n>>x>>y;
+        int minu=min(x,y);
+        int ans=(n+minu-1)/minu;
+        cout<<ans<<endl;
+    }
+}
