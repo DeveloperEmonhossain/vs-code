@@ -4,40 +4,68 @@ typedef long long ll;
 
 void Solve()
 {
-    ll n;
+    ll n, i;
     cin >> n;
-    vector<ll> v(n);  // Vector for safer array handling
-    for (ll i = 0; i < n; i++) {
-        cin >> v[i];  // Read input into the array
+    ll v[n];
+    for (i = 1; i <= n; i++)
+    {
+        cin >> v[i];
     }
+   if(n==3)
+   {
+       for (i = 0; i < n;i++)
+       {
+        if(v[i]==0)
+        {
+            cout << "NO" << endl;
+            return;
+        }
+       }
+   }
 
-    for (ll i = 1; i < n - 1; i++) {
-        if (v[i - 1] >= 0) {
-            ll x = v[i - 1];
-            v[i] = v[i] - 2 * x;
-            v[i + 1] = v[i + 1] - x;
+    for (i = 2; i <= n - 1; i++)
+    {
+
+        if (v[i - 1] >= 0)
+        {
+            v[i] = v[i] - 2 * v[i - 1];
+            v[i + 1] = v[i + 1] - v[i - 1];
             v[i - 1] = 0;
-        } else {
+        }
+        else
+        {
             break;
         }
     }
 
-    bool ok = true;
-    for (ll i = 0; i < n; i++) {
-        if (v[i] > 0) {
-            ok = false;
+    int f = 1;
+    for (i = 1; i <= n; i++)
+    {
+        if (v[i] > 0)
+        {
+            f = 0;
             break;
         }
     }
 
-    cout << (ok ? "YES" : "NO") << endl;
+    if (f == 0)
+    {
+        cout << "NO" << endl;
+    }
+    else
+    {
+        cout << "YES" << endl;
+    }
+
+   
 }
 
 int main()
 {
     ll t;
     cin >> t;
-    while (t--) {
+    while (t--)
+    {
         Solve();
     }
 }

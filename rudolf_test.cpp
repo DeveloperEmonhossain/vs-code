@@ -11,20 +11,28 @@ void Solve()
     {
         cin >> v[i];
     }
-
-    for (i = 2; i <=n - 1; i++)
+    if(v.size()>=3)
     {
-        if (v[i - 1] >=0)
-        {
-            v[i] = v[i] - 2 * v[i - 1];
-            v[i + 1] = v[i + 1] - v[i - 1];
-            v[i - 1] = 0;
-        }
-        else
-        {
-            break;
-        }
+    for (i = 0; i < n;i++)
+    {
+        
     }
+}
+
+        for (i = 2; i <= n - 1; i++)
+        {
+
+            if (v[i - 1] >= 0)
+            {
+                v[i] = v[i] - 2 * v[i - 1];
+                v[i + 1] = v[i + 1] - v[i - 1];
+                v[i - 1] = 0;
+            }
+            else
+            {
+                break;
+            }
+        }
 
     bool f = 1;
     for (i = 1; i <=n; i++)
